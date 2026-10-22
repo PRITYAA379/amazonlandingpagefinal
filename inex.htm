@@ -1,0 +1,862 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#09090c">
+  <meta name="description" content="Learn Amazon Kindle Direct Publishing basics in a live one-hour session with Pritam Jagtap for ₹300.">
+  <title>Start Your Kindle Book Business | Pritam Jagtap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #09090c;
+      --panel: #131317;
+      --text: #f7f4f1;
+      --muted: #aaa6ad;
+      --red: #ff343f;
+      --line: rgba(255,255,255,.11);
+      --green: #72e2ad;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background:
+        radial-gradient(ellipse at 78% 9%, rgba(255,52,63,.13), transparent 32%),
+        radial-gradient(ellipse at 8% 48%, rgba(189,20,34,.08), transparent 30%);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+    button, input, select { font: inherit; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(9,9,12,.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      letter-spacing: -.04em;
+      font-size: 1.1rem;
+    }
+    .brand span, .accent { color: var(--red); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      color: #d5d0d5;
+      font-size: .92rem;
+    }
+    .nav-links a:not(.btn):hover { color: white; }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 21px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      background: linear-gradient(110deg, var(--red), #e51e2d 65%, #ff5962);
+      color: white;
+      font-weight: 700;
+      font-size: .94rem;
+      cursor: pointer;
+      box-shadow: 0 8px 28px rgba(255,52,63,.18);
+      transition: transform .22s, box-shadow .22s, filter .22s;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn::after {
+      content: "";
+      position: absolute;
+      top: -60%;
+      left: -70%;
+      width: 45%;
+      height: 220%;
+      transform: rotate(22deg);
+      background: rgba(255,255,255,.22);
+      transition: left .6s;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 34px rgba(255,52,63,.3);
+      filter: saturate(1.15);
+    }
+    .btn:hover::after { left: 135%; }
+    .btn.secondary {
+      background: transparent;
+      border-color: rgba(255,255,255,.22);
+      box-shadow: none;
+    }
+    .btn.secondary::after { display: none; }
+    .btn.secondary:hover {
+      border-color: var(--red);
+      background: rgba(255,52,63,.08);
+    }
+    .btn.full { width: 100%; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid rgba(255,52,63,.34);
+      border-radius: 999px;
+      padding: 7px 12px;
+      color: #ff9da2;
+      background: rgba(255,52,63,.07);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 12px var(--red);
+    }
+
+    h1, h2, h3 {
+      font-family: "Space Grotesk", sans-serif;
+      line-height: 1.12;
+      letter-spacing: -.045em;
+      margin: 0;
+    }
+    h1 { font-size: clamp(2.7rem, 6vw, 5.5rem); max-width: 760px; }
+    h2 { font-size: clamp(2rem, 4vw, 3.35rem); }
+    h3 { font-size: 1.25rem; letter-spacing: -.025em; }
+    .muted { color: var(--muted); }
+
+    .hero { padding: 82px 0 86px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.18fr .82fr;
+      gap: 62px;
+      align-items: center;
+    }
+    .hero-copy .eyebrow { margin-bottom: 25px; }
+    .hero-copy p {
+      color: #c2bdc4;
+      font-size: 1.08rem;
+      max-width: 620px;
+      margin: 24px 0 28px;
+    }
+    .hero-actions { display: flex; gap: 13px; flex-wrap: wrap; }
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 26px;
+      color: #c3bec5;
+      font-size: .88rem;
+    }
+    .trust-row span::before {
+      content: "✓";
+      color: var(--green);
+      font-weight: 800;
+      margin-right: 7px;
+    }
+
+    .visual-wrap {
+      position: relative;
+      max-width: 430px;
+      width: 100%;
+      justify-self: center;
+    }
+    .visual-glow {
+      position: absolute;
+      inset: 12% -7% -8%;
+      background: rgba(255,52,63,.22);
+      filter: blur(65px);
+      border-radius: 50%;
+      z-index: -1;
+    }
+    .profile-card {
+      position: relative;
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 28px;
+      background: linear-gradient(145deg, rgba(255,255,255,.1), rgba(255,255,255,.025));
+      box-shadow: 0 28px 90px rgba(0,0,0,.48);
+      transform: rotate(1.5deg);
+    }
+    .profile-frame {
+      height: 440px;
+      border-radius: 19px;
+      overflow: hidden;
+      background: linear-gradient(135deg,#2c1015,#16161b);
+      position: relative;
+    }
+    .profile-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 24%;
+    }
+    .profile-frame::after {
+      content: "";
+      position: absolute;
+      inset: 35% 0 0;
+      background: linear-gradient(transparent, rgba(0,0,0,.82));
+      pointer-events: none;
+    }
+    .profile-caption {
+      position: absolute;
+      z-index: 1;
+      left: 28px;
+      right: 28px;
+      bottom: 26px;
+    }
+    .profile-caption small {
+      color: #ffb2b6;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 700;
+      font-size: .72rem;
+    }
+    .profile-caption h3 { font-size: 1.8rem; margin-top: 5px; }
+    .floating-price {
+      position: absolute;
+      right: -26px;
+      top: 35px;
+      padding: 16px 20px;
+      border-radius: 17px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(18,18,22,.93);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 15px 40px rgba(0,0,0,.35);
+      transform: rotate(-4deg);
+    }
+    .floating-price small { display: block; color: var(--muted); font-size: .78rem; }
+    .floating-price strong {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+    .floating-price strong span { color: var(--red); }
+
+    .section { padding: 88px 0; }
+    .section-head { max-width: 720px; margin-bottom: 36px; }
+    .section-head p { color: var(--muted); margin: 17px 0 0; font-size: 1.02rem; }
+    .center { text-align: center; margin-left: auto; margin-right: auto; }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+    .card {
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+      border-radius: 22px;
+      padding: 27px;
+      transition: transform .25s, border-color .25s, background .25s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,52,63,.5);
+      background: rgba(255,255,255,.055);
+    }
+    .icon-box {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,52,63,.12);
+      color: #ff747c;
+      font-size: 1.35rem;
+      margin-bottom: 20px;
+    }
+    .card p { color: var(--muted); margin: 12px 0 0; font-size: .95rem; }
+
+    .learn-layout {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 55px;
+      align-items: start;
+    }
+    .learn-intro { position: sticky; top: 115px; }
+    .check-list { display: grid; gap: 13px; }
+    .check-item {
+      display: flex;
+      gap: 13px;
+      padding: 17px 18px;
+      border-radius: 15px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid var(--line);
+    }
+    .check { color: var(--green); font-weight: 900; font-size: 1.1rem; }
+    .check-item strong { display: block; }
+    .check-item span:last-child { color: var(--muted); font-size: .91rem; }
+
+    .format-band {
+      background: linear-gradient(110deg, rgba(255,52,63,.14), rgba(255,255,255,.025));
+      border: 1px solid rgba(255,52,63,.24);
+      border-radius: 26px;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 25px;
+    }
+    .format-band p { color: var(--muted); margin: 10px 0 0; }
+    .format-facts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 12px;
+      color: #ded9df;
+      font-size: .84rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .about-photo {
+      width: 100%;
+      max-width: 300px;
+      height: 350px;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      box-shadow: 16px 16px 0 rgba(255,52,63,.12);
+    }
+    .about-copy p { color: var(--muted); }
+    .about-copy .btn { margin-top: 10px; }
+
+    .books-section { padding-top: 25px; }
+    .books-panel {
+      border: 1px solid var(--line);
+      background: #111115;
+      border-radius: 26px;
+      padding: 38px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+    .books-panel p { max-width: 650px; color: var(--muted); margin-bottom: 0; }
+
+    .faq-list { display: grid; gap: 12px; max-width: 850px; margin: 0 auto; }
+    details {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 19px 21px;
+      background: rgba(255,255,255,.025);
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--red); font-size: 1.3rem; line-height: 1; }
+    details[open] summary::after { content: "−"; }
+    details p { color: var(--muted); margin: 13px 0 0; }
+
+    .form-section {
+      background: linear-gradient(180deg, transparent, rgba(255,52,63,.07), transparent);
+    }
+    .signup-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .signup-copy p { color: var(--muted); }
+    .price-line { display: flex; align-items: baseline; gap: 12px; margin: 23px 0; }
+    .price-line strong { font-family: "Space Grotesk", sans-serif; font-size: 3rem; }
+    .price-line span { color: var(--muted); }
+    .form-card {
+      padding: 30px;
+      background: #131317;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: 0 25px 75px rgba(0,0,0,.24);
+    }
+    .form-card h3 { font-size: 1.5rem; margin-bottom: 7px; }
+    .form-card > p { color: var(--muted); font-size: .9rem; margin: 0 0 23px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .field { display: flex; flex-direction: column; gap: 7px; }
+    .field.wide { grid-column: 1 / -1; }
+    label { color: #e6e1e7; font-size: .88rem; font-weight: 600; }
+    input, select {
+      width: 100%;
+      color: white;
+      background: #0c0c10;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 12px;
+      padding: 13px 14px;
+      outline: none;
+      min-height: 48px;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    input:focus, select:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(255,52,63,.12);
+    }
+    select option { background: #111115; }
+    .consent {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--muted);
+      font-size: .84rem;
+      margin: 18px 0;
+    }
+    .consent input {
+      width: 17px;
+      min-height: 17px;
+      margin-top: 4px;
+      accent-color: var(--red);
+      flex-shrink: 0;
+    }
+    .form-note { color: #8f8992; font-size: .78rem; margin-top: 13px; }
+    .status { display: none; margin-top: 17px; padding: 14px; border-radius: 12px; font-size: .9rem; }
+    .status.success {
+      display: block;
+      color: #b6f5d4;
+      border: 1px solid rgba(114,226,173,.3);
+      background: rgba(114,226,173,.08);
+    }
+    .status.error {
+      display: block;
+      color: #ffb8bc;
+      border: 1px solid rgba(255,52,63,.35);
+      background: rgba(255,52,63,.08);
+    }
+    .calendly-next { display: none; margin-top: 17px; padding-top: 17px; border-top: 1px solid var(--line); }
+    .calendly-next.show { display: block; }
+
+    footer { border-top: 1px solid var(--line); padding: 30px 0; color: var(--muted); font-size: .86rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 18px; align-items: center; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    .footer-links a:hover { color: white; }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s, transform .7s; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: .08s; }
+    .delay-2 { transition-delay: .16s; }
+    .delay-3 { transition-delay: .24s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr .75fr; gap: 32px; }
+      .profile-frame { height: 370px; }
+      .floating-price { right: -12px; }
+      .grid-3 { grid-template-columns: 1fr 1fr; }
+      .learn-layout, .signup-grid { gap: 30px; }
+      .about-grid { gap: 32px; }
+    }
+
+    @media (max-width: 700px) {
+      .container { width: min(100% - 30px, var(--max)); }
+      .nav { min-height: 66px; }
+      .nav-links { gap: 12px; }
+      .nav-links a:not(.btn) { display: none; }
+      .nav-links .btn { padding: 10px 15px; font-size: .84rem; }
+      .hero { padding: 53px 0 62px; }
+      .hero-grid, .learn-layout, .about-grid, .signup-grid { grid-template-columns: 1fr; }
+      .hero-copy { order: 1; }
+      .visual-wrap { order: 0; max-width: 300px; margin: 0 auto 14px; }
+      .profile-frame { height: 320px; }
+      .floating-price { top: 20px; right: -16px; padding: 11px 15px; }
+      .floating-price strong { font-size: 1.6rem; }
+      h1 { font-size: clamp(2.55rem, 12vw, 4.2rem); }
+      .hero-copy p { font-size: 1rem; }
+      .section { padding: 62px 0; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .learn-intro { position: static; }
+      .format-band, .books-panel { grid-template-columns: 1fr; display: grid; padding: 25px; }
+      .about-photo { max-width: 250px; height: 290px; }
+      .form-card { padding: 22px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.wide { grid-column: auto; }
+      .hero-actions .btn { width: 100%; }
+      .trust-row { gap: 10px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#home">PRITAM<span>.</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#what-you-learn">What You'll Learn</a>
+        <a href="#about">About</a>
+        <a href="https://www.amazon.in/stores/PRITAM-JAGTAP/author/B0DP3B276D?ref=ap_rdr&shoppingPortalEnabled=true" target="_blank" rel="noopener noreferrer">My Books ↗</a>
+        <a class="btn" href="#register">Join for ₹300</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Beginner-friendly live session</span>
+          <h1>Turn your ideas into a <span class="accent">published book.</span></h1>
+          <p>Learn the basics of Amazon Kindle Direct Publishing (KDP) in a practical, one-hour live Google Meet session. Understand the process, the setup, and the next steps without getting lost in technical jargon.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#register">Reserve My Spot · ₹300 ↗</a>
+            <a class="btn secondary" href="https://www.amazon.in/stores/PRITAM-JAGTAP/author/B0DP3B276D?ref=ap_rdr&shoppingPortalEnabled=true" target="_blank" rel="noopener noreferrer">Explore My Books</a>
+          </div>
+          <div class="trust-row">
+            <span>Live Google Meet</span>
+            <span>Approx. 60 minutes</span>
+            <span>Beginner-friendly</span>
+          </div>
+        </div>
+
+        <div class="visual-wrap reveal delay-2">
+          <div class="visual-glow"></div>
+          <div class="profile-card">
+            <div class="profile-frame">
+              <img src="https://i.ibb.co/1YMfXBSq/IMG-0974.jpg" alt="Pritam Jagtap" loading="eager">
+              <div class="profile-caption">
+                <small>Your session host</small>
+                <h3>Pritam Jagtap</h3>
+                <span>Author · KDP Creator</span>
+              </div>
+            </div>
+          </div>
+          <div class="floating-price">
+            <small>One live session</small>
+            <strong><span>₹</span>300</strong>
+            <small>Approx. 60 minutes</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow">Start with clarity</span>
+          <h2>Publishing can feel complicated.<br><span class="accent">Your first steps don't have to.</span></h2>
+          <p>Amazon KDP gives authors a way to publish books digitally and in print. This session helps you understand the process before you spend hours clicking through menus and wondering what everything means.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card reveal">
+            <div class="icon-box">⌘</div>
+            <h3>Understand KDP</h3>
+            <p>Learn what Kindle Direct Publishing is, how it works, and the main publishing options available to authors.</p>
+          </article>
+          <article class="card reveal delay-1">
+            <div class="icon-box">✍</div>
+            <h3>Plan your first book</h3>
+            <p>Explore the basics of choosing a book idea, preparing a manuscript, and thinking about a reader.</p>
+          </article>
+          <article class="card reveal delay-2">
+            <div class="icon-box">↗</div>
+            <h3>Know your next steps</h3>
+            <p>Get a clearer picture of the setup and publishing workflow, including what to prepare after the session.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="what-you-learn">
+      <div class="container learn-layout">
+        <div class="learn-intro reveal">
+          <span class="eyebrow">Inside the session</span>
+          <h2>What we'll <span class="accent">cover</span></h2>
+          <p class="muted">A focused introduction designed for people who are new to self-publishing and want a practical starting point.</p>
+          <a class="btn" href="#register">Register for ₹300 ↗</a>
+        </div>
+        <div class="check-list">
+          <div class="check-item reveal"><span class="check">✓</span><div><strong>Amazon KDP explained</strong><span>What the platform does and the difference between eBooks and print books.</span></div></div>
+          <div class="check-item reveal delay-1"><span class="check">✓</span><div><strong>Account and setup overview</strong><span>The main areas to understand when getting ready to use KDP.</span></div></div>
+          <div class="check-item reveal"><span class="check">✓</span><div><strong>Preparing your book</strong><span>An introduction to manuscript formatting, cover preparation, title, and book details.</span></div></div>
+          <div class="check-item reveal delay-1"><span class="check">✓</span><div><strong>Publishing workflow</strong><span>How a book moves from preparation through listing and review on the platform.</span></div></div>
+          <div class="check-item reveal"><span class="check">✓</span><div><strong>Common beginner mistakes</strong><span>Things to double-check before publishing, including content quality and metadata.</span></div></div>
+          <div class="check-item reveal delay-1"><span class="check">✓</span><div><strong>Questions and next steps</strong><span>Use the live session to clarify your starting questions and plan what to do next.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="format-band reveal">
+          <div>
+            <span class="eyebrow">Simple and practical</span>
+            <h2 style="margin-top:16px">One hour. One clear <span class="accent">starting point.</span></h2>
+            <p>Join online from your phone or computer. Bring your questions and a notebook; the goal is to leave with a better understanding of the KDP process.</p>
+            <div class="format-facts">
+              <span class="pill">Live Google Meet</span>
+              <span class="pill">Approx. 60 minutes</span>
+              <span class="pill">₹300 per participant</span>
+              <span class="pill">For beginners</span>
+            </div>
+          </div>
+          <a class="btn" href="#register">Save My Spot ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="reveal">
+          <img class="about-photo" src="https://i.ibb.co/1YMfXBSq/IMG-0974.jpg" alt="Pritam Jagtap, author and KDP session host" loading="lazy">
+        </div>
+        <div class="about-copy reveal delay-1">
+          <span class="eyebrow">Meet your host</span>
+          <h2 style="margin-top:17px">Learn from someone who has been <span class="accent">publishing.</span></h2>
+          <p>I'm Pritam Jagtap. I've been publishing books on Amazon for around three years. I created this introductory session for beginners who want to understand the KDP process and make more informed decisions about starting their own publishing journey.</p>
+          <p>This is an educational session, not a promise of sales or income. Your results depend on your book, its quality, reader demand, marketing, and many other factors.</p>
+          <a class="btn secondary" href="https://www.amazon.in/stores/PRITAM-JAGTAP/author/B0DP3B276D?ref=ap_rdr&shoppingPortalEnabled=true" target="_blank" rel="noopener noreferrer">View My Amazon Author Page ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section books-section">
+      <div class="container">
+        <div class="books-panel reveal">
+          <div>
+            <span class="eyebrow">Explore my work</span>
+            <h2 style="margin-top:15px">See my books on <span class="accent">Amazon.</span></h2>
+            <p>Visit my Amazon Author Page to browse the books I've published and get a better sense of my work before joining the session.</p>
+          </div>
+          <a class="btn" href="https://www.amazon.in/stores/PRITAM-JAGTAP/author/B0DP3B276D?ref=ap_rdr&shoppingPortalEnabled=true" target="_blank" rel="noopener noreferrer">Open Author Page ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow">Before you register</span>
+          <h2>Frequently asked <span class="accent">questions</span></h2>
+        </div>
+        <div class="faq-list">
+          <details class="reveal">
+            <summary>Is this suitable for complete beginners?</summary>
+            <p>Yes. The session is designed as an introduction for people who are new to Amazon KDP and self-publishing.</p>
+          </details>
+          <details class="reveal">
+            <summary>How will the session happen?</summary>
+            <p>It will be held live on Google Meet. After you submit the registration form, you'll be shown the booking link to choose an available time.</p>
+          </details>
+          <details class="reveal">
+            <summary>How much does it cost?</summary>
+            <p>The session fee is ₹300 for approximately one hour.</p>
+          </details>
+          <details class="reveal">
+            <summary>Will I definitely earn money from publishing?</summary>
+            <p>No. Publishing does not guarantee sales or income. Results depend on many factors, including book quality, reader demand, and marketing.</p>
+          </details>
+          <details class="reveal">
+            <summary>What should I bring?</summary>
+            <p>Bring a phone or computer with internet access, a notebook, and any questions you have about getting started.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section form-section" id="register">
+      <div class="container signup-grid">
+        <div class="signup-copy reveal">
+          <span class="eyebrow">Take your first step</span>
+          <h2 style="margin-top:19px">Start your KDP journey <span class="accent">here.</span></h2>
+          <p>Fill in the short form. Once your details are submitted successfully, you'll get the option to book a suitable time for the live session.</p>
+          <div class="price-line"><strong>₹300</strong><span>· approx. 60-minute live session</span></div>
+          <div class="check-list">
+            <div class="check-item"><span class="check">✓</span><div><strong>Practical introduction</strong><span>Focus on the essentials for getting started.</span></div></div>
+            <div class="check-item"><span class="check">✓</span><div><strong>Live online format</strong><span>Join from a suitable place with a stable internet connection.</span></div></div>
+            <div class="check-item"><span class="check">✓</span><div><strong>Questions welcome</strong><span>Bring your beginner questions to the session.</span></div></div>
+          </div>
+        </div>
+
+        <div class="form-card reveal delay-1">
+          <h3>Register your interest</h3>
+          <p>Enter accurate details so we can contact you about the session.</p>
+          <form id="leadForm">
+            <div class="form-grid">
+              <div class="field wide">
+                <label for="fullName">Full name *</label>
+                <input id="fullName" name="Full Name" type="text" autocomplete="name" placeholder="Enter your full name" required maxlength="100">
+              </div>
+              <div class="field">
+                <label for="age">Age *</label>
+                <input id="age" name="Age" type="number" min="18" max="100" placeholder="Your age" required>
+              </div>
+              <div class="field">
+                <label for="mobile">Mobile number *</label>
+                <input id="mobile" name="Mobile Number" type="tel" inputmode="tel" autocomplete="tel" placeholder="+91 98765 43210" pattern="[+0-9 ()-]{8,20}" required>
+              </div>
+              <div class="field wide">
+                <label for="education">Highest education *</label>
+                <select id="education" name="Highest Education" required>
+                  <option value="" disabled selected>Select your highest education</option>
+                  <option>Below 10th</option>
+                  <option>10th Pass</option>
+                  <option>12th Pass</option>
+                  <option>Diploma / ITI</option>
+                  <option>Undergraduate</option>
+                  <option>Graduate</option>
+                  <option>Postgraduate</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <label class="consent" for="consent">
+              <input id="consent" name="Phone Contact Consent" type="checkbox" value="Yes, I consent to being contacted by phone about this KDP session" required>
+              <span>I agree that Pritam Jagtap may contact me by phone about this session. *</span>
+            </label>
+
+            <button class="btn full" id="submitBtn" type="submit">Submit Details & Continue ↗</button>
+            <p class="form-note">Your details will be sent to the session host for follow-up. Required fields are marked with an asterisk.</p>
+            <div id="formStatus" class="status" role="status" aria-live="polite"></div>
+
+            <div id="calendlyNext" class="calendly-next">
+              <strong>Next step: choose your session time</strong>
+              <p class="muted" style="margin:7px 0 14px;font-size:.9rem">Open the booking page to view available times on Calendly.</p>
+              <a class="btn full" href="https://calendly.com/jagtappritam73/kindle-book-business-startup" target="_blank" rel="noopener noreferrer">Book on Calendly ↗</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Pritam Jagtap · Kindle KDP Intro Session</div>
+      <div class="footer-links">
+        <a href="https://www.amazon.in/stores/PRITAM-JAGTAP/author/B0DP3B276D?ref=ap_rdr&shoppingPortalEnabled=true" target="_blank" rel="noopener noreferrer">My Amazon Books ↗</a>
+        <a href="#register">Register</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Animate sections as they enter the viewport.
+    (function () {
+      const items = document.querySelectorAll('.reveal');
+
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(item => item.classList.add('visible'));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      items.forEach(item => observer.observe(item));
+    })();
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Registration email delivery through FormSubmit.
+    // First-time use may require confirming an activation email.
+    const leadForm = document.getElementById('leadForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formStatus = document.getElementById('formStatus');
+    const calendlyNext = document.getElementById('calendlyNext');
+
+    leadForm.addEventListener('submit', async function (event) {
+      event.preventDefault();
+      formStatus.className = 'status';
+      formStatus.textContent = '';
+      calendlyNext.classList.remove('show');
+
+      if (!leadForm.reportValidity()) return;
+
+      const originalText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+
+      const formData = new FormData(leadForm);
+      const payload = Object.fromEntries(formData.entries());
+      payload._subject = 'New KDP Session Registration';
+      payload._template = 'table';
+      payload._captcha = 'false';
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/jagtappritam73@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if (
+          response.ok &&
+          (result.success === 'true' ||
+           result.success === true ||
+           result.success === 'success')
+        ) {
+          formStatus.className = 'status success';
+          formStatus.textContent = 'Your details have been submitted successfully. Continue to Calendly to choose a suitable session time.';
+          calendlyNext.classList.add('show');
+          calendlyNext.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
+          throw new Error(result.message || 'Submission was not confirmed.');
+        }
+      } catch (error) {
+        formStatus.className = 'status error';
+        formStatus.textContent = 'We could not confirm your submission. Check your internet connection and try again. If this is your first submission, confirm the activation email from FormSubmit, then test again.';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      }
+    });
+  </script>
+</body>
+</html>
